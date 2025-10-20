@@ -38,7 +38,7 @@ if __name__ == '__main__':
     print(f"\nSuccesfully loaded the data!")
     print(f"We have {len(training_loader)} batches of data.")
     
-    print(f"\nPreparing the mode...")
+    print(f"\nPreparing the model...")
     model = LinearClassifier()
     loss_function = torch.nn.MSELoss()
     # we will use a small learning rate for now
@@ -85,7 +85,7 @@ Converting data to tensors for Pytorch...
 Succesfully loaded the data!
 We have 750 batches of data.
 
-Preparing the mode...
+Preparing the model...
 The model is ready!
 
 Starting the model training...
@@ -107,4 +107,5 @@ Testing the model...
 
 Testing Succesfully completed!
 Our test is 84.67% accurate --> 10161/12000 correct predictions!
+
 """
