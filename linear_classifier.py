@@ -119,10 +119,14 @@ Sucesfully trained the model!
 
 Testing the model...
 
+# using MSELoss and lr = .01
 Testing Succesfully completed!
 Our test is 84.67% accurate --> 10161/12000 correct predictions!
 
+# using CrossEntropyLoss and lr = .1
+Our test is 91.85% accurate --> 11022/12000 correct predictions!
 """
+
 
 
 
