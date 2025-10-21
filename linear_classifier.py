@@ -28,10 +28,15 @@ if __name__ == '__main__':
     y_testing_tensor = torch.from_numpy(y_testing_output).long()
     
     # we now create the one hot encoding vectors for the training output set
-    y_training_one_hot = torch.nn.functional.one_hot(y_training_tensor, num_classes=10).float()
+
+    # *******************************************************************************
+    y_training_one_hot = torch.nn.functional.one_hot(y_training_tensor, num_classes=10).float() # comment this out for cross entropy loss
     
     # now, we can create the training dataset
-    training_dataset = TensorDataset(x_training_tensor, y_training_one_hot)
+    training_dataset = TensorDataset(x_training_tensor, y_training_one_hot) # comment out for cross entropy loss
+    # training_dataset = TensorDataset(x_training_tensor, y_training_tensor) # uncomment this for cross entropy loss
+    # *******************************************************************************
+    
     # now we can create the data loader to efficently load the data
     training_loader = DataLoader(dataset = training_dataset, batch_size = 64, shuffle = True)
     
@@ -40,9 +45,14 @@ if __name__ == '__main__':
     
     print(f"\nPreparing the model...")
     model = LinearClassifier()
+
+    # ***********************************************
     loss_function = torch.nn.MSELoss()
+    # loss_function = torch.nn.CrossEntropyLoss()
+    # ***********************************************
     
     # we will use a small learning rate for now
+    # we change this this to alter the hyperparameters
     optimizer = torch.optim.SGD(model.parameters(), lr = .01)
     # optimizer = torch.optim.SGD(model.parameters(), lr = .1)
     # optimizer = torch.optim.SGD(model.parameters(), lr = .001)
@@ -113,5 +123,6 @@ Testing Succesfully completed!
 Our test is 84.67% accurate --> 10161/12000 correct predictions!
 
 """
+
 
 
