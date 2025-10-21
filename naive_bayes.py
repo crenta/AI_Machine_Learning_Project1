@@ -112,6 +112,7 @@ Testing the model on the test set...
 Naive Bayes calculation complete!
 The accuracy is 84.32% --> 10118/12000 correct predictions! 
 
-# NOTE: altering the smoothing did not change this accuracy by much
+# NOTE: altering the smoothing did not change this accuracy by much with 1e-9 achieving the best results
 """
+
 
