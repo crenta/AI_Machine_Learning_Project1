@@ -130,7 +130,10 @@ Sucesfully trained the model!
 
 Testing the model...
 
+# when lr = .01
 Testing Succesfully completed!
 Our test is 97.46% accurate --> 11695/12000 correct predictions!
 
+# when lr = .1
+Our test is 98.39% accurate --> 11807/12000 correct predictions!
 """
