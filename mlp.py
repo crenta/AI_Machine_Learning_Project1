@@ -48,8 +48,13 @@ if __name__ == '__main__':
     
     # since we are using a multi-class classifier we can use CrossEntropy loss function
     loss_function = torch.nn.CrossEntropyLoss()
+    
     # we will use a small learning rate for now
     optimizer = torch.optim.SGD(model.parameters(), lr = .01)
+    #optimizer = torch.optim.SGD(model.parameters(), lr = .1)
+    #optimizer = torch.optim.SGD(model.parameters(), lr = .001)
+
+    
     print(f"The model is ready!")
     
     print(f"\nStarting the model training...\n")
@@ -114,4 +119,5 @@ Testing the model...
 
 Testing Succesfully completed!
 Our test is 92.66% accurate --> 11119/12000 correct predictions!
+
 """
