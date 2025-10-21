@@ -42,7 +42,10 @@ if __name__ == '__main__':
     model = LinearClassifier()
     loss_function = torch.nn.MSELoss()
     # we will use a small learning rate for now
+    
     optimizer = torch.optim.SGD(model.parameters(), lr = .01)
+    # optimizer = torch.optim.SGD(model.parameters(), lr = .1)
+    # optimizer = torch.optim.SGD(model.parameters(), lr = .001)
     print(f"The model is ready!")
     
     print(f"\nStarting the model training...\n")
@@ -109,3 +112,4 @@ Testing Succesfully completed!
 Our test is 84.67% accurate --> 10161/12000 correct predictions!
 
 """
+
