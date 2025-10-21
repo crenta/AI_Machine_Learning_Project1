@@ -34,8 +34,13 @@ if __name__ == '__main__':
     
     y_training_tensor = torch.from_numpy(y_training_output).long()
     y_testing_tensor = torch.from_numpy(y_testing_output).long()
-    
-    training_dataset = TensorDataset(x_training_tensor, y_training_tensor)
+
+    # *******************************************************************************
+    training_dataset = TensorDataset(x_training_tensor, y_training_tensor) # uncomment for CrossEntropyLoss
+
+    # y_training_one_hot = torch.nn.functional.one_hot(y_training_tensor, num_classes=10).float() # uncomment for MSELoss
+    # training_dataset = TensorDataset(x_training_tensor, y_training_one_hot) # uncomment for MSELoss
+    # *******************************************************************************
     
     # now we can create the data loader to efficently load the data
     training_loader = DataLoader(dataset = training_dataset, batch_size = 64, shuffle = True)
@@ -45,9 +50,12 @@ if __name__ == '__main__':
     
     print(f"\nPreparing the model...")
     model = MLPClassifier()
-    
+
+    # ***********************************************
     # since we are using a multi-class classifier we can use CrossEntropy loss function
     loss_function = torch.nn.CrossEntropyLoss()
+    # loss_function = torch.nn.MSELoss()
+    # ***********************************************
     
     # we will use a small learning rate for now
     optimizer = torch.optim.SGD(model.parameters(), lr = .01)
@@ -121,3 +129,4 @@ Testing Succesfully completed!
 Our test is 92.66% accurate --> 11119/12000 correct predictions!
 
 """
+
