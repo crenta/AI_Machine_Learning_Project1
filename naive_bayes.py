@@ -26,7 +26,12 @@ def calc_probability(x_training_input, y_training_output):
         # calculate probability of the current digit
         on_pixel_count = images_from_current_set.sum(axis=0) # get the count of pixels that are on for each column
         pixel_prob = (on_pixel_count / images_in_set) # get the pixel probability -- we divide the number of on pixels by the number of images in the set
+        
         smooth_probabilities = (pixel_prob + 1e-6) # smooth the probabiliies so we do not get a 0
+        # smooth_probabilities = (pixel_prob + 1e-9)
+        # smooth_probabilities = (pixel_prob + 1e-3)
+        # smooth_probabilities = (pixel_prob + 1e-1)
+        
         prob_ledger[i] = smooth_probabilities # store the value in the ledger
         
     return prior_digit_prob, prob_ledger
@@ -105,4 +110,5 @@ Testing the model on the test set...
 
 Naive Bayes calculation complete!
 The accuracy is 83.79% --> 10055/12000 correct predictions!
+
 """
